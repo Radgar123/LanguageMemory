@@ -11,19 +11,13 @@ public class PointController : MonoBehaviour
     public static int highScore;
     public static int score;
     
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
         updateHighScore();
-        scoreText.text = "" + score;
-        highScoreText.text = "" + highScore;
+        scoreText.text = "Score: " + score;
+        highScoreText.text = "High Score: " + highScore;
     }
 
     void updateHighScore()

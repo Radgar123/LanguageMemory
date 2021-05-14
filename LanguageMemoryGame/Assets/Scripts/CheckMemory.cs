@@ -11,8 +11,9 @@ public class CheckMemory : MonoBehaviour
     private AudioSource memoryCardClickAudio;
 
     private GameObject grandChild;
+    private CheckMemory checkChild;
 
-    public float timeToDead;
+    public float timeToDead = 30;
 
     public void Start()
     {
@@ -46,26 +47,22 @@ public class CheckMemory : MonoBehaviour
                    
                     reverse.SetActive(false);
                     cardView.SetActive(true);
-                    ExampleCoroutine();
                     Debug.Log("test");
-                    Destroy(controller.firstObject);
+                    /*Destroy(controller.firstObject);
                     Destroy(controller.secondObject);
+                    PointController.score++;
+                    controller.currentTag = null;*/
+                    StartCoroutine(DestroyCards(2));
                 }
-                else if(controller.currentTag != gameObject.tag)
+                else
                 {
+
+                    StartCoroutine(DisableCards(2));
                     
-
-                    Debug.Log("Other card");
-
-                    //StartCoroutine(ExampleCoroutine());
-
-                    
-
-                    //while()
                 }
             }
 
-        isClick = true;
+            isClick = true;
         }
 
     }
@@ -75,10 +72,45 @@ public class CheckMemory : MonoBehaviour
         Check();
     }
 
-    IEnumerator ExampleCoroutine()
+    IEnumerator DisableCards(float time)
     {
-        yield return new WaitForSeconds(30);
-        
+        yield return new WaitForSeconds(time);
+        Debug.Log("Other card");
+        checkChild = controller.firstObject.GetComponent<CheckMemory>();
+        checkChild.isClick = false;
+        checkChild = controller.secondObject.GetComponent<CheckMemory>();
+        checkChild.isClick = false;
+
+
+        grandChild = controller.firstObject.transform.GetChild(0).gameObject;
+        grandChild.SetActive(true);
+        grandChild = controller.firstObject.transform.GetChild(1).gameObject;
+        grandChild.SetActive(false);
+
+        grandChild = controller.secondObject.transform.GetChild(0).gameObject;
+        grandChild.SetActive(true);
+        grandChild = controller.secondObject.transform.GetChild(1).gameObject;
+        grandChild.SetActive(false);
+
+        controller.currentTag = null;
+        controller.isFirst = true;
+        controller.firstObject = null;
+        controller.secondObject = null;
     }
 
+    IEnumerator DestroyCards(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(controller.firstObject);
+        Destroy(controller.secondObject);
+        PointController.score++;
+
+        controller.currentTag = null;
+        controller.currentTag = null;
+        controller.isFirst = true;
+        controller.firstObject = null;
+        controller.secondObject = null;
+    }
+
+    
 }

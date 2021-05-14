@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f24652e4df0c14ae3967ba9e130e415a, type: 3}
-  m_Name: "Jab\u0142ko"
+  m_Name: Cucumber
   m_EditorClassIdentifier: 
-  tag: Apple
-  nameCard1: "Jab\u0142ko"
-  nameCard2: Apple
+  tag: Cucumber
+  nameCard1: "Og\xF3rek"
+  nameCard2: Cucumber
