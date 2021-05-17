@@ -8,16 +8,20 @@ public class CheckMemory : MonoBehaviour
     public GameObject reverse;
     public GameObject cardView;
     public  bool isClick = false;
-    private AudioSource memoryCardClickAudio;
 
     private GameObject grandChild;
     private CheckMemory checkChild;
 
-    public float timeToDead = 30;
+    private AudioSource audio;
+    public AudioClip checkClip;
+    public AudioClip winClip;
+    public AudioClip loseClip;
+
+    //public float timeToDead = 30;
 
     public void Start()
     {
-        memoryCardClickAudio = GetComponent<AudioSource>();
+        audio = GameObject.Find("Audio").GetComponent<AudioSource>();
     }
 
 
@@ -33,6 +37,9 @@ public class CheckMemory : MonoBehaviour
 
         if (controller.isFirst)
         {
+            audio.clip = checkClip;
+            audio.Play();
+
             controller.currentTag = gameObject.tag;
             controller.isFirst = false;
             controller.firstObject = gameObject;
@@ -48,10 +55,6 @@ public class CheckMemory : MonoBehaviour
                     reverse.SetActive(false);
                     cardView.SetActive(true);
                     Debug.Log("test");
-                    /*Destroy(controller.firstObject);
-                    Destroy(controller.secondObject);
-                    PointController.score++;
-                    controller.currentTag = null;*/
                     StartCoroutine(DestroyCards(2));
                 }
                 else
@@ -75,7 +78,10 @@ public class CheckMemory : MonoBehaviour
     IEnumerator DisableCards(float time)
     {
         yield return new WaitForSeconds(time);
-        Debug.Log("Other card");
+
+        audio.clip = loseClip;
+        audio.Play();
+        
         checkChild = controller.firstObject.GetComponent<CheckMemory>();
         checkChild.isClick = false;
         checkChild = controller.secondObject.GetComponent<CheckMemory>();
@@ -101,6 +107,10 @@ public class CheckMemory : MonoBehaviour
     IEnumerator DestroyCards(float time)
     {
         yield return new WaitForSeconds(time);
+
+        audio.clip = winClip;
+        audio.Play();
+
         Destroy(controller.firstObject);
         Destroy(controller.secondObject);
         PointController.score++;

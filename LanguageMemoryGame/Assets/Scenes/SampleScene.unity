@@ -557,7 +557,9 @@ MonoBehaviour:
   reverse: {fileID: 1319054886}
   cardView: {fileID: 818397637}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &133051975
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -820,7 +822,9 @@ MonoBehaviour:
   reverse: {fileID: 762454121}
   cardView: {fileID: 527066454}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &467629979
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1160,6 +1164,7 @@ GameObject:
   - component: {fileID: 540386499}
   - component: {fileID: 540386500}
   - component: {fileID: 540386497}
+  - component: {fileID: 540386501}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1244,6 +1249,102 @@ MonoBehaviour:
   - {fileID: 467629976}
   - {fileID: 1034969047}
   - {fileID: 691323770}
+--- !u!82 &540386501
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540386496}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &573415554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1395,9 @@ MonoBehaviour:
   reverse: {fileID: 101880883}
   cardView: {fileID: 676614539}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &573415557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1531,7 +1634,9 @@ MonoBehaviour:
   reverse: {fileID: 68015019}
   cardView: {fileID: 465800881}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &691323773
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2425,7 +2530,9 @@ MonoBehaviour:
   reverse: {fileID: 1290784169}
   cardView: {fileID: 1121315101}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &1034969050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3072,7 +3179,9 @@ MonoBehaviour:
   reverse: {fileID: 2044569903}
   cardView: {fileID: 59210488}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &1256503629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3850,7 +3959,9 @@ MonoBehaviour:
   reverse: {fileID: 1322968854}
   cardView: {fileID: 798044600}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &1556515036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5185,7 +5296,9 @@ MonoBehaviour:
   reverse: {fileID: 2066003828}
   cardView: {fileID: 1503517490}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &2106544653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5262,7 +5375,9 @@ MonoBehaviour:
   reverse: {fileID: 1817274888}
   cardView: {fileID: 1212936054}
   isClick: 0
-  timeToDead: 30
+  checkClip: {fileID: 0}
+  winClip: {fileID: 0}
+  loseClip: {fileID: 0}
 --- !u!61 &2116137066
 BoxCollider2D:
   m_ObjectHideFlags: 0
