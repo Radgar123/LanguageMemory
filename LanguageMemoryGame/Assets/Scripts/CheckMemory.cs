@@ -27,46 +27,46 @@ public class CheckMemory : MonoBehaviour
 
     public void Check()
     {
-        if (!isClick)
+        if (!isClick && controller.Clicks < 2)
         {
 
-        reverse.SetActive(false);
-        cardView.SetActive(true);
+                reverse.SetActive(false);
+                cardView.SetActive(true);
 
         
 
-        if (controller.isFirst)
-        {
-            audio.clip = checkClip;
-            audio.Play();
+            if (controller.isFirst)
+            {
+                audio.clip = checkClip;
+                audio.Play();
 
-            controller.currentTag = gameObject.tag;
-            controller.isFirst = false;
-            controller.firstObject = gameObject;
-
-        }
-        else
-        {
-                controller.secondObject = gameObject;
-
-                if (controller.currentTag == gameObject.tag)
-                {
-                   
-                    reverse.SetActive(false);
-                    cardView.SetActive(true);
-                    Debug.Log("test");
-                    StartCoroutine(DestroyCards(2));
-                }
-                else
-                {
-
-                    StartCoroutine(DisableCards(2));
-                    
-                }
+                controller.currentTag = gameObject.tag;
+                controller.isFirst = false;
+                controller.firstObject = gameObject;
+                controller.Clicks += 1;
             }
+            else
+            {
+                    controller.secondObject = gameObject;
 
-            isClick = true;
-        }
+                    if (controller.currentTag == gameObject.tag)
+                    {
+                   
+                        reverse.SetActive(false);
+                        cardView.SetActive(true);
+                        Debug.Log("test");
+                        controller.Clicks += 1;
+                        StartCoroutine(DestroyCards(1));
+                    }
+                    else
+                    {
+                        controller.Clicks += 1;
+                        StartCoroutine(DisableCards(1));
+                    }
+                }
+
+                isClick = true;
+            }
 
     }
 
@@ -102,6 +102,7 @@ public class CheckMemory : MonoBehaviour
         controller.isFirst = true;
         controller.firstObject = null;
         controller.secondObject = null;
+        controller.Clicks = 0;
     }
 
     IEnumerator DestroyCards(float time)
@@ -120,7 +121,6 @@ public class CheckMemory : MonoBehaviour
         controller.isFirst = true;
         controller.firstObject = null;
         controller.secondObject = null;
+        controller.Clicks = 0;
     }
-
-    
 }

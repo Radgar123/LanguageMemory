@@ -9,23 +9,29 @@ public class SpawnController : MonoBehaviour
     [Header("Memory configuration")]
 
     private int numberOfPair;
+
     public List<MemoryScript> memory;
     public List<GameObject> spawnPoints;
 
     private TextMeshProUGUI grandChild;
     private GameObject objectChild;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         numberOfPair = spawnPoints.Count / 2;
         SpawnPairs();
-        RevelCards();
-        StartCoroutine(DisplayCardsForWhile());
+        
+        //RevelCards();
+       // StartCoroutine(DisplayCardsForWhile());
+        Debug.Log("Hello World");
     }
 
     public void SpawnCards()
     {
+        
         int cardID = Random.Range(0, memory.Count);
         int spawnPointsID = Random.Range(0, spawnPoints.Count);
 
@@ -75,6 +81,7 @@ public class SpawnController : MonoBehaviour
 
         }
 
+        Debug.Log("Nie œmiga");
         
     }
 
@@ -99,7 +106,8 @@ public class SpawnController : MonoBehaviour
 
             objectChild = spawnPoints[i].transform.GetChild(1).gameObject;
             objectChild.SetActive(false);
-
         }
     }
+
+    
 }
