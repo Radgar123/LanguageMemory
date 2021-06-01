@@ -122,5 +122,7 @@ public class CheckMemory : MonoBehaviour
         controller.firstObject = null;
         controller.secondObject = null;
         controller.Clicks = 0;
+
+        PointController.actualCards += 2;
     }
 }
